@@ -147,27 +147,32 @@ html,body{
     grid-row: middle/end;
     grid-column: start-end/end;
     display: grid;
-    grid-template:[c-start]1fr[c-middle] 1fr[c-end]/[c-start]3fr[c-middle] 1fr[c-end] ;
+    grid-template:[c-start]50px [c-start-end]1fr[c-middle] 1fr[c-end]/[c-start]3fr[c-middle] 1fr[c-end] ;
 }
+
+.content> h2{
+    margin: 10px 20px;
+    /* position: absolute; */
+    width: fit-content;
+    align-self: center;
+    height: fit-content;
+
+}
+
 
 .content-main{
     background-color: #efefef;
-    margin: 55px 20px;
+    margin: 10px 20px;
     grid-column: c-start/c-middle;
-    grid-row: c-start/c-end;
+    grid-row: c-start-end/c-end;
     display: grid;
-    position: relative;
+    /* position: relative; */
     grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
     column-gap: 20px;
     padding: 20px;
 }
 
-.content> h2{
-    margin-left: 40px;
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-}
+
 
 
 
@@ -190,30 +195,54 @@ html,body{
     grid-column: c-middle/c-end;
     grid-row: c-start/c-end;
     display: grid;
-    grid-template: [aside-start]1fr[aside-mid] 1fr[aside-end]/ [aside-start]1fr [aside-end];
-    justify-items: center;
+    grid-template: [aside-start]50px [aside-start-end]1fr[aside-mid] 50px[aside-mid-end]1fr[aside-end]/ [aside-start]1fr [aside-end];
+    justify-items: flex-start;
+    align-items: center;
 }
 
 .aside-top, .aside-bottom{
     border-radius: 8px;
-    width: 80%;
-    margin: 55px 10px 15px 0;
+    width: 95%;
+    margin: 10px auto;
+    max-height: fit-content;
     display: flex;
+    align-self: flex-start;
+    /* align-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
     flex-direction:column ;
     background-color: #ffffff;
-    grid-row: aside-start/aside-mid; 
+    grid-row: aside-start-end/aside-mid; 
+    grid-column: aside-start/aside-end;
 }
 
 .aside-bottom{
-    grid-row: aside-mid/aside-end;
+    grid-row: aside-mid-end/aside-end;
 }
 
 .item{
     width: 80%;
-    margin: 0 auto;
-    padding: 5px;
+    margin: 8px auto;
+    
+    
+}
+
+.item >*, .content-aside h2{
+    margin: 0;
+    height: fit-content;
+}
+
+.item p{
+
+}
+
+.section-header{
+    grid-row: aside-mid/aside-mid-end;
+    grid-column: aside-start/aside-end;
 }
 
 .btm-cnt{
+    margin: 5px auto;
     display: flex;
+    width: 80%;
 }
